@@ -1,0 +1,77 @@
+.login{
+    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/1691099b-ff71-4321-bd54-1bba46b0886b/a8beca40-5d02-4287-9370-d98276fd315a/JO-en-20220228-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+background-repeat: no-repeat;
+background-size: 100%;
+min-height:900px;
+color: rgb(122, 121, 121);
+text-align: center;
+}
+.Login_Tittle{
+    font-size:35px;
+    margin-bottom:10px;
+}
+.Login_Form{
+    display: flex;
+    flex-direction: column;
+    background-color:rgba(0, 0, 0, 0.877);
+    justify-content: center;
+    align-items: center;
+gap:10px;
+}
+.Login_Input{
+    background-color: gray;
+    border-color:gray ;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    height: 30px;
+    line-height: 50px;
+    padding: 16px 20px 0;
+    
+}
+.Login_Input:focus{
+    border: none;
+}
+.Login_Input::placeholder{
+    color:#fff;
+}
+.Login_button{
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    width: 200px;
+    height: 40px;
+    margin: 24px 0 12px;
+    color: #fff;
+    background-color: red
+
+}
+.Login_ForgetPassword_Row{
+    margin-top:-20px;
+    display: flex;
+    gap: 25px;
+}
+.facebook_icon{
+    color: rgb(38, 95, 201);
+    
+}
+.Login_CheckBox{}
+.Login_Remember{}
+.Login_Help{}
+.Login_FaceBook{
+    display:flex;
+    justify-content:center;
+    gap:5px;
+}
+.Login_face{}
+.Login_SignUp a{
+    font-size: 20px;
+    font-weight: 700;
+    width: 200px;
+    height: 40px;
+    margin-left:10px;
+    color: #fff;
+}
+.Login_New{}
+.Login_Learn_More{}
+
