@@ -4,7 +4,7 @@ CREATE Database NetFlex;
 
 USE NetFlex;
 
-CREATE Table Genree(
+CREATE Table Genre(
     id int not null auto_increment primary key,
     title VARCHAR(255) NOT NULL,
     is_deleted TINYINT Default 0
@@ -25,7 +25,7 @@ Create Table Movie(
     trailer VARCHAR(255) NOT NULL,
     genre int NOT NULL,
     is_deleted TINYINT Default 0,
-    FOREIGN KEY (genre) REFERENCES Genree(id) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (genre) REFERENCES Genre(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE Table Subscription(
@@ -34,8 +34,8 @@ CREATE Table Subscription(
     price VARCHAR(255) NOT NULL,
     quality VARCHAR(255) NOT NULL,
     watch VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     is_deleted TINYINT Default 0
 );
 
