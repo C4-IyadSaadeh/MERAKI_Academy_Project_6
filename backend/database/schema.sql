@@ -25,7 +25,7 @@ Create Table Movie(
     trailer VARCHAR(255) NOT NULL,
     genre int NOT NULL,
     is_deleted TINYINT Default 0,
-    FOREIGN KEY (genre) REFERENCES Genree(id)
+    FOREIGN KEY (genre) REFERENCES Genree(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE Table Subscription(
@@ -34,6 +34,8 @@ CREATE Table Subscription(
     price VARCHAR(255) NOT NULL,
     quality VARCHAR(255) NOT NULL,
     watch VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     is_deleted TINYINT Default 0
 );
 
@@ -50,8 +52,8 @@ CREATE Table User(
     plan int NOT NULL,
     role int NOT NULL,
     is_deleted TINYINT Default 0,
-    FOREIGN KEY (plan) REFERENCES Subscription(id),
-    FOREIGN KEY (role) REFERENCES Role(id)
+    FOREIGN KEY (plan) REFERENCES Subscription(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (role) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 Create Table Admin (
@@ -60,5 +62,5 @@ Create Table Admin (
     password VARCHAR(255) NOT NULL,
     role int NOT NULL,
     is_deleted TINYINT Default 0,
-    FOREIGN KEY (role) REFERENCES Role(id)
+    FOREIGN KEY (role) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
