@@ -1,7 +1,7 @@
 // Connection to database server.
 const connection = require("../database/db");
 
-// This Function Add New Role 
+// This Function Add New Role
 const CreateNewRole = (req, res) => {
   const { title } = req.body;
   const query = "INSERT INTO Role (title) VALUES (?)";
@@ -27,19 +27,17 @@ const getAllRole = (req, res) => {
         .status(500)
         .json({ success: false, message: "server Error", error: err.message });
     }
-    return res
-      .status(200)
-      .json({
-        success: true,
-        message: "SuccessFully Retrieve All Role",
-        Role: result,
-      });
+    return res.status(200).json({
+      success: true,
+      message: "SuccessFully Retrieve All Role",
+      Role: result,
+    });
   });
 };
 
 // Update Role By Id
 const updateRoleById = (req, res) => {
-  const { id, title} = req.body;
+  const { id, title } = req.body;
   const query = "UPDATE Role SET title=? where id =?";
   const data = [id, title];
   connection.query(query, data, (err, result) => {
@@ -69,10 +67,10 @@ const deleteRoleById = (req, res) => {
       .status(202)
       .json({ success: true, message: "SuccessFully Delete Role" });
   });
-  module.exports = {
-    CreateNewRole,
-    getAllRole,
-    updateRoleById,
-    deleteRoleById,
-  };
+};
+module.exports = {
+  CreateNewRole,
+  getAllRole,
+  updateRoleById,
+  deleteRoleById,
 };

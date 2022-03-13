@@ -18,8 +18,7 @@ const MovieRouter = require("./routes/Movie");
 const GenreRouter = require("./routes/Genre");
 const RoleRouter = require("./routes/Role");
 const SubscriptionRouter = require("./routes/Subscription");
-const UserRouter = require("./routes/User")
-app.use(express.json());
+const UserRouter = require("./routes/User");
 
 //====================================================// Routes Middleware
 app.use("/admin", AdminRouter);

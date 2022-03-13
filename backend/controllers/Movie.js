@@ -52,13 +52,11 @@ const getAllMovies = (req, res) => {
         .status(500)
         .json({ success: false, message: "Server Error", error: err.message });
     }
-    return res
-      .status(200)
-      .json({
-        success: true,
-        message: "Successful Retrieved Movies",
-        Movies: result,
-      });
+    return res.status(200).json({
+      success: true,
+      message: "Successful Retrieved Movies",
+      Movies: result,
+    });
   });
 };
 // This Function Retrieve Movie in Detail Movie Page.
@@ -71,13 +69,11 @@ const getMovieById = (req, res) => {
         .status(500)
         .json({ success: false, message: "Server Error", error: err.message });
     }
-    return res
-      .status(200)
-      .json({
-        success: true,
-        message: "Successful Retrieved Movie",
-        Movie: result,
-      });
+    return res.status(200).json({
+      success: true,
+      message: "Successful Retrieved Movie",
+      Movie: result,
+    });
   });
 };
 // This Function Retrieve the Movie From Title I will Using in search
@@ -90,13 +86,11 @@ const getMovieByTitle = (req, res) => {
         .status(500)
         .json({ success: false, message: "Server Error", error: err.message });
     }
-    return res
-      .status(200)
-      .json({
-        success: true,
-        message: "Successful Retrieved Movie",
-        Movie: result,
-      });
+    return res.status(200).json({
+      success: true,
+      message: "Successful Retrieved Movie",
+      Movie: result,
+    });
   });
 };
 // This Function Update Info Movie By Id.
@@ -162,12 +156,12 @@ const deleteMovieById = (req, res) => {
       .status(202)
       .json({ success: true, message: "Successful Delete Movie" });
   });
-  module.exports = {
-    CreateNewMovie,
-    getAllMovies,
-    getMovieById,
-    getMovieByTitle,
-    updateMovieById,
-    deleteMovieById,
-  };
+};
+module.exports = {
+  CreateNewMovie,
+  getAllMovies,
+  getMovieById,
+  getMovieByTitle,
+  updateMovieById,
+  deleteMovieById,
 };

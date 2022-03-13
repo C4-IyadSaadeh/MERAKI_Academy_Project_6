@@ -6,16 +6,22 @@ const CreateNewAdmin = (req, res) => {
   const { email, password, role } = req.body;
   const query = "INSERT INTO Admin (email,password,role) VALUES (?,?,?)";
   const data = [email, password, role];
-  connection.query(query, data, (err, result) => {
-    if (err) {
+  try {
+    connection.query(query, data, (err, result) => {
+      if (err) {
+        return res.status(500).json({
+          success: false,
+          message: "server Error",
+          error: err.message,
+        });
+      }
       return res
-        .status(500)
-        .json({ success: false, message: "server Error", error: err.message });
-    }
-    return res
-      .status(200)
-      .json({ success: true, message: "SuccessFully Add New Admin" });
-  });
+        .status(201)
+        .json({ success: true, message: "SuccessFully Add New Admin" });
+    });
+  } catch (error) {
+    throw new Error(error.message);
+  }
 };
 
 // Retrieve All Admins
@@ -27,13 +33,11 @@ const getAllAdmin = (req, res) => {
         .status(500)
         .json({ success: false, message: "server Error", error: err.message });
     }
-    return res
-      .status(200)
-      .json({
-        success: true,
-        message: "SuccessFully Retrieve All Admin",
-        Admin: result,
-      });
+    return res.status(200).json({
+      success: true,
+      message: "SuccessFully Retrieve All Admin",
+      Admin: result,
+    });
   });
 };
 
@@ -69,10 +73,10 @@ const deleteAdminById = (req, res) => {
       .status(202)
       .json({ success: true, message: "SuccessFully Delete Admin" });
   });
-  module.exports = {
-    CreateNewAdmin,
-    getAllAdmin,
-    updateAdminById,
-    deleteAdminById,
-  };
+};
+module.exports = {
+  CreateNewAdmin,
+  getAllAdmin,
+  updateAdminById,
+  deleteAdminById,
 };

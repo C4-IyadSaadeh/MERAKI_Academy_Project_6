@@ -1,7 +1,7 @@
 // Connection to database server.
 const connection = require("../database/db");
 
-// This Function Add New Genre 
+// This Function Add New Genre
 const CreateNewGenre = (req, res) => {
   const { title } = req.body;
   const query = "INSERT INTO Genre (title) VALUES (?)";
@@ -27,13 +27,11 @@ const getAllGenre = (req, res) => {
         .status(500)
         .json({ success: false, message: "server Error", error: err.message });
     }
-    return res
-      .status(200)
-      .json({
-        success: true,
-        message: "SuccessFully Retrieve All Genre",
-        Genre: result,
-      });
+    return res.status(200).json({
+      success: true,
+      message: "SuccessFully Retrieve All Genre",
+      Genre: result,
+    });
   });
 };
 
@@ -69,10 +67,10 @@ const deleteGenreById = (req, res) => {
       .status(202)
       .json({ success: true, message: "SuccessFully Delete Genre" });
   });
-  module.exports = {
-    CreateNewGenre,
-    getAllGenre,
-    updateGenreById,
-    deleteGenreById,
-  };
+};
+module.exports = {
+  CreateNewGenre,
+  getAllGenre,
+  updateGenreById,
+  deleteGenreById,
 };

@@ -1,10 +1,9 @@
 // Connection to database server.
 const connection = require("../database/db");
 
-
-// This Function Add New User 
+// This Function Add New User
 const CreateNewUser = (req, res) => {
-  const { email, password,plan, role } = req.body;
+  const { email, password, plan, role } = req.body;
   const query = "INSERT INTO User (email,password,plan,role) VALUES (?,?,?,?)";
   const data = [email, password, plan, role];
   connection.query(query, data, (err, result) => {
@@ -28,21 +27,20 @@ const getAllUser = (req, res) => {
         .status(500)
         .json({ success: false, message: "server Error", error: err.message });
     }
-    return res
-      .status(200)
-      .json({
-        success: true,
-        message: "SuccessFully Retrieve All User",
-        User: result,
-      });
+    return res.status(200).json({
+      success: true,
+      message: "SuccessFully Retrieve All User",
+      User: result,
+    });
   });
 };
 
 // Update User By Id
 const updateUserById = (req, res) => {
-  const { id, email, password,plan, role } = req.body;
-  const query = "UPDATE User SET email=?,password=?,plan=? , role=? where id =?";
-  const data = [id, email, password,plan, role];
+  const { id, email, password, plan, role } = req.body;
+  const query =
+    "UPDATE User SET email=?,password=?,plan=? , role=? where id =?";
+  const data = [id, email, password, plan, role];
   connection.query(query, data, (err, result) => {
     if (err) {
       return res
@@ -70,10 +68,10 @@ const deleteUserById = (req, res) => {
       .status(202)
       .json({ success: true, message: "SuccessFully Delete User" });
   });
-  module.exports = {
-    CreateNewUser,
-    getAllUser,
-    updateUserById,
-    deleteUserById,
-  };
+};
+module.exports = {
+  CreateNewUser,
+  getAllUser,
+  updateUserById,
+  deleteUserById,
 };
