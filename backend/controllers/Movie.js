@@ -2,33 +2,29 @@ const connection = require("../database/db");
 // -------- Function to create Movie .
 const CreateNewMovie = (req, res) => {
   const {
+    image,
     title,
+    year,
     duration,
-    rate,
-    country,
+    rating,
     quality,
-    posterImg,
-    link,
-    years,
-    cast,
+    genre,
     description,
     trailer,
-    genre,
+    link
   } = req.body;
-  const query = `INSERT INTO Movie VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`;
+  const query = `INSERT INTO Movie VALUES (?,?,?,?,?,?,?,?,?,?)`;
   const data = [
+    image,
     title,
+    year,
     duration,
-    rate,
-    country,
+    rating,
     quality,
-    posterImg,
-    link,
-    years,
-    cast,
+    genre,
     description,
     trailer,
-    genre,
+    link
   ];
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -96,34 +92,31 @@ const getMovieByTitle = (req, res) => {
 // This Function Update Info Movie By Id.
 const updateMovieById = (req, res) => {
   const {
+    image,
     title,
+    year,
     duration,
-    rate,
-    country,
+    rating,
     quality,
-    posterImg,
-    link,
-    years,
-    cast,
+    genre,
     description,
     trailer,
-    genre,
+    link,
     id,
   } = req.body;
-  const query = `UPDATE Movie SET title=?,duration=?,rate=?,country=?,quality=?,posterImg=?,link=?,years=?,cast=?,description=?,trailer=?,genre=? WHERE id=?`;
+  const query = `UPDATE Movie SET image=?,title=?,year=?,duration=?,rating=?,
+  quality=?,genre=?,description=?,trailer=?,link=? WHERE id=?`;
   const data = [
+    image,
     title,
+    year,
     duration,
-    rate,
-    country,
+    rating,
     quality,
-    posterImg,
-    link,
-    years,
-    cast,
+    genre,
     description,
     trailer,
-    genre,
+    link,
     id,
   ];
   connection.query(query, data, (err, result) => {

@@ -4,28 +4,19 @@ CREATE Database NetFlex;
 
 USE NetFlex;
 
-CREATE Table Genre(
-    id int not null auto_increment primary key,
-    title VARCHAR(255) NOT NULL,
-    is_deleted TINYINT Default 0
-);
-
 Create Table Movie(
-    id int not null auto_increment primary key,
-    title VARCHAR(255) NOT NULL,
-    duration decimal NOT NULL,
-    rate int NOT NULL,
-    country VARCHAR(255) NOT NULL,
-    quality VARCHAR(255) NOT NULL,
-    posterImg VARCHAR(255) NOT NULL,
-    link VARCHAR(255) NOT NULL,
-    years VARCHAR(255) NOT NULL,
-    cast VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL,
-    trailer VARCHAR(255) NOT NULL,
-    genre int NOT NULL,
-    is_deleted TINYINT Default 0,
-    FOREIGN KEY (genre) REFERENCES Genre(id) ON DELETE CASCADE ON UPDATE CASCADE
+    id int primary key auto_increment not null,
+    url LONGTEXT,
+    image varchar(255),
+    title varchar(255),
+    year varchar(255),
+    duration varchar(255),
+    rating varchar(255),
+    quality varchar(255),
+    genre varchar(255),
+    description LONGTEXT,
+    trailer LONGTEXT,
+    link LONGTEXT
 );
 
 CREATE Table Subscription(
