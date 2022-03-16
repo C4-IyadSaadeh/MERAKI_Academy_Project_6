@@ -12,7 +12,7 @@ const {
 MovieRouter.post("/createMovie", CreateNewMovie);
 MovieRouter.get("/allMovies", getAllMovies);
 MovieRouter.get("/getMovieByTitle", getMovieByTitle);
-MovieRouter.get("/getMovieById", getMovieById);
+MovieRouter.get("/getMovieById/:id", getMovieById);
 MovieRouter.put("/updateMovieById", updateMovieById);
 MovieRouter.delete("/deleteMovieById", deleteMovieById);
 
