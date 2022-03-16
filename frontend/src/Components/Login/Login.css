@@ -1,6 +1,6 @@
 body{
-    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/1691099b-ff71-4321-bd54-1bba46b0886b/a8beca40-5d02-4287-9370-d98276fd315a/JO-en-20220228-popsignuptwoweeks-perspective_alpha_website_large.jpg');
-    
+    /* background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/1691099b-ff71-4321-bd54-1bba46b0886b/a8beca40-5d02-4287-9370-d98276fd315a/JO-en-20220228-popsignuptwoweeks-perspective_alpha_website_large.jpg'); */
+    background-color: black;
 }
 .login{
     background-color: rgba(0, 0, 0, 0.82);
