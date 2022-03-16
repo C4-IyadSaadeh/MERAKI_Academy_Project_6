@@ -1,0 +1,13 @@
+.slider{
+    
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    width: 93rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    margin-left: 5px;
+}
+.Carousel{
+    width: 93rem;
+}
