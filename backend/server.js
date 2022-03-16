@@ -29,7 +29,7 @@ app.use("/subscription", SubscriptionRouter);
 app.use("/user", UserRouter);
 
 //====================================================// Handles any other endpoints [unassigned - endpoints]
-app.use("*", (req, res) => res.status(404).json("NO content at this path"));
+// app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 
 app.listen(PORT, () => {
   console.log(`SERVER WORKING ON PORT: ${PORT}`);

@@ -3,7 +3,7 @@ const connection = require("../database/db");
 
 // Retrieve All Genres
 const getAllGenre = (req, res) => {
-  const query = "SELECT genre FROM Movie WHERE is_deleted=0";
+  const query = "SELECT genre FROM Movie WHERE is_deleted=0 Group BY genre ";
   connection.query(query, (err, result) => {
     if (err) {
       return res
