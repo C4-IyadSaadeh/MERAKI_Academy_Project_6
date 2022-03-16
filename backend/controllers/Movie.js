@@ -58,7 +58,7 @@ const getAllMovies = (req, res) => {
 // This Function Retrieve Movie in Detail Movie Page.
 const getMovieById = (req, res) => {
   const query = "SELECT * FROM Movie WHERE is_deleted = 0 and id = ?";
-  const data = [req.body.id];
+  const data = [req.params.id];
   connection.query(query, data, (err, result) => {
     if (err) {
       return res
