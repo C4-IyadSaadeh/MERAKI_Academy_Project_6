@@ -32,7 +32,7 @@ export default function SingleMovie({show,onHide,movie}) {
   <ListGroup.Item style={{backgroundColor:'black',border:'none',color:'white'}}>{movie.duration}</ListGroup.Item>
   <ListGroup.Item style={{backgroundColor:'black',border:'none',color:'yellow'}}>{movie.quality}</ListGroup.Item>
   <ListGroup.Item style={{backgroundColor:'black',border:'none',color:'white'}}>{movie.genre}</ListGroup.Item>
-  <ListGroup.Item style={{backgroundColor:'black',border:'none',color:'white'}}><Button onClick={()=>{navigate(`/FullMovie/${movie.id}`)}}>Play Movie</Button></ListGroup.Item>
+  <ListGroup.Item style={{backgroundColor:'black',border:'none',color:'white'}}><Button  style={{backgroundColor:'black',border:'none',color:'white'}} onClick={()=>{navigate(`/FullMovie/${movie.id}`)}}>Play Movie</Button></ListGroup.Item>
 </ListGroup>
         
 

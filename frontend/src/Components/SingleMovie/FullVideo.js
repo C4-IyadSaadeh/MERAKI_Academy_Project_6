@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
+import HeaderOne from "../Header/HeaderOne";
 import { setOne, setMovies } from "../Redux/Movie/index";
 
 export default function FullVideo() {
@@ -38,12 +39,15 @@ export default function FullVideo() {
 
   return (
     <div>
+    <HeaderOne/>
+
       <iframe
         title={state.Movies[0].length === 0 ? "" : getSingleMovie().title}
         src={state.Movies[0].length === 0 ? "" : getSingleMovie().trailer}
         width="100%"
         height="700"
         allowFullScreen
+        
         frameBorder="0"
       ></iframe>
     </div>

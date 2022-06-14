@@ -12,6 +12,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 import SingleMovie from "../SingleMovie/SingleMovie";
+import HeaderOne from "../Header/HeaderOne";
 export default function Home() {
   // use state
   const [message, setMessage] = useState("");
@@ -96,6 +97,8 @@ console.log(result.data.Movies);
 
   return (
     <div>
+    <HeaderOne/>
+
       <Carousel
         className="Carousel"
         activeIndex={0}

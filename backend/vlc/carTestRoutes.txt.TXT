@@ -1,0 +1,42 @@
+//====================================================//Require
+const express = require("express");
+
+//====================================================//Require Functions
+const {
+  // petrolCarTest,
+  HybridCarTest,
+  // getPetrolCars,
+  gethybridCars,
+  deletePetrolCar,
+  deletehybridcar,
+  getCarByCarNo,
+  getCarByCarVin,
+  updateHybridCarById,
+  // updatePetrolCarById,
+} = require("../controllers/CarTestHybrid.js");
+const {updatePetrolCarById,
+  getPetrolCars,
+  petrolCarTest,
+  getCarTestByCarVin}= require("../controllers/CarTestPetrol.js");
+const CarTestRouter = express.Router();
+// CarTestRouter.post("/petrolCar", petrolCarTest);
+// ============================================ //Hybrid 
+CarTestRouter.post("/hybridCar", HybridCarTest);
+// CarTestRouter.get("/getpetroltest", getPetrolCars);
+CarTestRouter.get("/gethybridtest", gethybridCars);
+CarTestRouter.delete("/deletepetrolcar", deletePetrolCar);
+CarTestRouter.delete("/deletehybridcar", deletehybridcar);
+CarTestRouter.get("/getcarbyno", getCarByCarNo);
+CarTestRouter.get("/getCarByCarVin", getCarByCarVin);
+CarTestRouter.put("/updatehybridcarbyid", updateHybridCarById);
+CarTestRouter.put("/updatehybridcarbyid", updateHybridCarById);
+
+// CarTestRouter.put("/updatepetrolcarbyid", updatePetrolCarById);
+
+//====================================================// Petrol
+
+CarTestRouter.get("/getCarTestByCarVin", getCarTestByCarVin);
+
+//====================================================// module.exports
+
+module.exports = CarTestRouter;

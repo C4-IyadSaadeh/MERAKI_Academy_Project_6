@@ -12,7 +12,6 @@ export default function HeaderOne() {
   <Container fluid>
     <Navbar.Brand  style={{color: '#ff1212',fontSize: 'x-large',fontStyle: 'italic',fontWeight: '600'}}>NETFLIX</Navbar.Brand>
     <Nav className="justify-content-start flex-grow-1 pe-3" >
-          <Nav.Link style={{color: 'white'}} onClick={()=>{navigate('/movies')}}>Home</Nav.Link>
           
           
           
@@ -20,22 +19,11 @@ export default function HeaderOne() {
           
         </Nav>
         <Nav className="justify-content-end  pe-3" >
-        <Form className="d-flex">
-          <FormControl
-            type="search"
-            placeholder="Search"
-            className="me-2"
-            aria-label="Search"
-          />
-          <Button variant="outline-success">Search</Button>
-        </Form>
         
         <Nav.Link style={{color: 'white'}} onClick={()=>{
           navigate('/Login')
-        window.localStorage.setItem('isLogin',false)
-      
-      }}>Log Out</Nav.Link>
-        
+          
+        }}>Sign In</Nav.Link>
 
         </Nav>
     <Navbar.Toggle  aria-controls="offcanvasNavbar" />

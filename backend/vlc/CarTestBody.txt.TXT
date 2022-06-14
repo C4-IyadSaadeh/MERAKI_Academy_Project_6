@@ -1,0 +1,191 @@
+//====================================================//Require
+const connection = require("../database/db");
+const { uuid } = require("uuidv4");
+
+//====================================================//Create Petrol Car Test
+const petrolCarTest = (req, res) => {
+  const {
+    car_no,
+    car_type,
+    car_vin,
+    car_color,
+    car_model,
+    test_price,
+    car_order_no,
+    car_notes,
+    vin_tr,
+    vin_tl,
+    vin_br,
+    vin_bl,
+    body_note,
+    engine_test,
+    gear_test,
+    back_acss,
+  } = req.body;
+  const query =
+    "INSERT INTO petrol_car (car_no,car_type,car_vin,car_color,car_model,test_price,car_order_no,car_notes,vin_tr,vin_tl,vin_br,vin_bl,body_note,engine_test,gear_test,back_acss) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  const data = [
+    car_no,
+    car_type,
+    car_vin,
+    car_color,
+    car_model,
+    test_price,
+    car_order_no,
+    car_notes, 
+    vin_tr,
+    vin_tl,
+    vin_br,
+    vin_bl,
+    body_note,
+    engine_test,
+    gear_test,
+    back_acss
+  ];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ success: false, message: "Server Error", error: err.message });
+    }
+    return res.status(200).json({
+      success: true,
+      message: "Successfully Add Car Test",
+      result: result,
+    });
+  });
+};
+
+//====================================================//get all Petrol Cars where is_deleted =0
+const getPetrolCars = (req, res) => {
+  const query = "SELECT *  FROM vlc.petrol_car where is_deleted =0;";
+  connection.query(query, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "server error",
+        err: err,
+      });
+    }
+
+    // result are the data returned by mysql server
+    return res.status(200).json({
+      success: true,
+      massage: "All Petrol Cars",
+      results: result,
+    });
+  });
+};
+
+//====================================================//update petrol car By Id Function
+
+const updatePetrolCarById = async (req, res) => {
+  const {
+    car_no,
+        car_type,
+        car_vin,
+        car_color,
+        car_model,
+        test_price,
+        car_order_no,
+        car_notes, 
+        vin_tr,
+        vin_tl,
+        vin_br,
+        vin_bl,
+        body_note,
+        engine_test,
+        gear_test,
+        back_acss,
+    id,
+  } = req.body;
+  const data = [
+    car_no,
+        car_type,
+        car_vin,
+        car_color,
+        car_model,
+        test_price,
+        car_order_no,
+        car_notes, 
+        vin_tr,
+        vin_tl,
+        vin_br,
+        vin_bl,
+        body_note,
+        engine_test,
+        gear_test,
+        back_acss,
+    id,
+  ];
+  const query = `UPDATE petrol_car SET car_no=?,car_type=?,car_vin=?,car_color=?,car_model=?, test_price=?,car_order_no=?,car_notes=?,vin_tr=?,vin_tl=?,vin_br=?,vin_bl=?,body_note=?,engine_test=?,gear_test=?,back_acss=? WHERE id= ?`;
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "Server Error",
+        err: err,
+      });
+    } else {
+      return res.status(200).json({
+        success: true,
+        massage: `Car Test Update Successfully`,
+        results: result,
+      });
+    }
+  });
+};
+// ======================================= search function by car vin
+const getCarTestByCarVin=(req, res) => {
+    const {car_vin} = req.body;
+    const obj={};
+    const query1="";
+    const query=`select * From vlc.petrol_car p ,vlc.hybrid_car where p.car_vin = ?; `;
+
+    const data=[car_vin]
+connection.query(query,data, (err, result)=>{
+    if(!err) {
+    console.log(result)
+console.log(req.body)
+        
+        return res.status(200).json({
+            success: true,
+            massage: `Car Test Update Successfully`,
+            results: result,
+          });
+    }
+    console.log(err)
+
+    return res.status(500).json({error: err.message,result});
+
+    
+});
+//     connection.query(query1,data,(error1, result)=>{
+//         if (!error1) {
+//             // return res.json({Petrol: result[0]});
+//             // return res.json({obj});
+// try {
+//     obj.Petrol = result[0];
+// // console.log(obj)
+//     connection.query(query2, data,(err, result)=>{
+//         if (!err) {
+//             obj.Hybrid = result[0];
+//             console.log(obj)
+//             // return res.json({obj});
+//         }
+//     });
+// } catch (error) {
+//     console.log("first")
+// }
+//         }
+//         return res.json({err:obj});
+//     });
+}
+//====================================================// module.exports
+
+module.exports = {
+  updatePetrolCarById,
+  getPetrolCars,
+  petrolCarTest,
+  getCarTestByCarVin
+};
